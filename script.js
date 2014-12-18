@@ -1,5 +1,7 @@
 "use strict";
-	
+
+//Funktion som stämmer av om det hårdkodade användarnamnet och 
+//lösenordet stämmer överrens med de inmatade värdena.
 var LogIn = function(){
 	var username = document.getElementById("username");
 	var password = document.getElementById("password");
@@ -13,32 +15,42 @@ var LogIn = function(){
 		password = password.value;
 		console.log(typeof(username));
 		console.log(username);
+		
+		//Om användarnamn och lösenord är rätt skickas man vidare till
+		//administratörspanelen via Admin() efter man fått ett bekräftelsemeddelande
 		if (username === admin && password === secret){
 			document.getElementById("username").innerHTML = "";
 			document.getElementById("password").innerHTML = "";
-			alert("Welcome Admin!");
+			alert("Välkommen Admin!");
 			console.log("Du är inloggad som admin");
 		    Admin();
 		}
+		//Om lösenordet är felaktigt meddelas detta och inloggningen misslyckas
 		else if (username === admin && password != secret) {
-			alert("Oops! Wrong password");
-		    console.log("Oops! Wrong password");
+			alert("Oops! Fel lösenord");
+		    console.log("Oops! Fel lösenord");
 		}
+		//Om användarnamnet är felaktigt meddelas detta och inloggningen misslyckas
 		else if (username != admin && password === secret) {
-			alert("Oops! Wrong username");
-		    console.log("Oops! Wrong username");
+			alert("Oops! Fel användarnamn");
+		    console.log("Oops! Fel användarnamn");
 		}
+		//Om både användarnamn och lösenord är felaktioga meddelas detta och 
+		//inloggningen misslyckas
 		else if (username != admin && password != secret) {
-			alert("Oops! Wrong username and password");
-		    console.log("Oops! Wrong username and password");
+			alert("Oops! Fel användarnamn och lösenord");
+		    console.log("Oops! Fel användarnamn och lösenord");
 		}
 		else {
-			alert("Oops! Unexpected error");
-		    console.log("Oops! Unexpected error");
+			alert("Oops! Ett oväntat fel inträffade");
+		    console.log("Oops! Ett oväntat fel inträffade");
 		}
 	});
 };
 
+//Funktion som genererar administratörsgränssnittet och som anropas av 
+//LogIn() när användaren matat in rätt inloggningsuppgifter
+//Knappen skapa tävling visas
 var Admin = function(){
 	console.log("Hello Admin!");
 	var addCompetition = document.getElementById("addCompetition");
@@ -50,6 +62,8 @@ var Admin = function(){
 	});
 };
 
+//När användaren klickat på att skapa ny tävling hämtas formuläret 
+//där användaren kan mata in tävlingsuppgifterna
 var AddCompetition = function(){
 	var newCompetition = document.getElementById("newCompetition");
 	var add = document.getElementById("add");
