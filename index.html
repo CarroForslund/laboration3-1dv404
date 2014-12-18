@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<meta charset="UTF-8" />
+ 	<title>Gymnastikligan</title>
+ 	<link rel="stylesheet" href="style.css">
+ 	<script src="script.js"></script>
+</head>
+    <body>
+        <div id="wrapper">
+            <div id="login-menu">
+                <form>
+                    <input type="textarea" id="username" name="username" placeholder="Användarnamn"/>
+                    <input type="textarea" id="password" name="password" placeholder="Lösenord"/>
+                    <input type="submit" id="submit" name="send" value="Logga in"/> 
+                    <a href="forgotten.html" class="small">Glömt lösenord</a>
+                    <a href="register.html" class="small">Registrera konto</a>
+                </form>
+                
+            </div>
+            <div id= "main">
+                <h1>Gymnastikligan</h1>
+                <form action="get">
+                    <input id="addCompetition" class="hidden" type="submit" value="Skapa ny tävling" />
+                </form>
+                <div id="newCompetition" class="hidden">
+                    <form>
+                        <input type="textarea" id="date" name="date" placeholder="Tävlingsdatum"/><br />
+                        <input type="textarea" id="location" name="location" placeholder="Tävlingsplats"/><br />
+                        <input type="submit" id="add" name="add" value="Lägg till tävling"/> 
+                    </form>
+                </div>
+                <ul id="competitions">
+                    <li>2015-01-10 Kalmar Gymnastiksällskap</li>
+                    <li>2015-02-01 Nybro Idrottklubb</li>
+                    <li>2015-03-23 Mörbylånga Gymnastikklubb</li>
+                </ul>
+            </div>
+            
+        </div>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+body {
+    margin: 0 0 0 0;
+}
+
+#main {
+    padding: 0 1em;
+}
+
+#login-menu {
+    height: 45px;
+    background-color: #ECECEC;
+    margin: 0;
+    padding: 0.2em;
+    text-align: right;
+}
+
+#login-menu form {
+    width: 350px;
+    float: right;
+}
+
+.hidden {
+    display: none;
+}
+
+.small {
+    font-size: 0.8em;
+}
+
+a {
+    color: #000;
+}
