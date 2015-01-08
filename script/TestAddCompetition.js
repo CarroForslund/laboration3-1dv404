@@ -8,15 +8,25 @@ var TestAddCompetition = function(){
         else {
             console.log("Test failed.");
         }
-        if (testAddCompetitionDateFail()){
-            console.log("Test 'invalid date' passed.");
+        if (testAddCompetitionDateNoDate()){
+            console.log("Test 'date no date' passed.");
         }else {
-            console.log("Test 'invalid date' failed.");
+            console.log("Test 'date no date' failed.");
         }
-        if (testAddCompetitionPlaceFail()){
-            console.log("Test 'invalid place' passed.");
+        if (testAddCompetitionDateNotNumbers()){
+            console.log("Test 'date not numbers' passed.");
         }else {
-            console.log("Test 'invalid place' failed.");
+            console.log("Test 'date not numbers' failed.");
+        }
+        if (testAddCompetitionPlaceToShort()){
+            console.log("Test 'place to short' passed.");
+        }else {
+            console.log("Test 'place to short' failed.");
+        }
+        if (testAddCompetitionPlaceNoString()){
+            console.log("Test 'place to short' passed.");
+        }else {
+            console.log("Test 'place to short' failed.");
         }
     };
     
@@ -30,7 +40,7 @@ var TestAddCompetition = function(){
         }
     };
     
-    var testAddCompetitionDateFail = function() {
+    var testAddCompetitionNoDate = function() {
         try {
             var competition = AddCompetition(2, "Kalmar GF");
             return true;
@@ -40,7 +50,27 @@ var TestAddCompetition = function(){
         }
     };
     
-    var testAddCompetitionPlaceFail = function() {
+    var testAddCompetitionDateNotNumbers = function() {
+        try {
+            var competition = AddCompetition("string", "Kalmar GF");
+            return true;
+        }
+        catch (error) {
+            return false;
+        }
+    };
+    
+    var testAddCompetitionPlaceToShort = function() {
+        try {
+            var competition = AddCompetition("2015-10-10", "KGK");
+            return true;
+        }
+        catch (error) {
+            return false;
+        }
+    };
+    
+    var testAddCompetitionPlaceNoString = function() {
         try {
             var competition = AddCompetition("2015-10-10", 2);
             return true;
