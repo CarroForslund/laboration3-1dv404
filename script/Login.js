@@ -2,7 +2,7 @@
 
 //Funktion som stämmer av om det hårdkodade användarnamnet och 
 //lösenordet stämmer överrens med de inmatade värdena.
-var LogIn = function(){
+var LogIn = function(username, password){
 	var username = document.getElementById("username");
 	var password = document.getElementById("password");
 	var submit = document.querySelector("#submit");
@@ -19,16 +19,21 @@ var LogIn = function(){
 		//Om användarnamn och lösenord är rätt skickas man vidare till
 		//administratörspanelen via Admin() efter man fått ett bekräftelsemeddelande
 		if (username === admin && password === secret){
-			document.getElementById("username").innerHTML = "";
-			document.getElementById("password").innerHTML = "";
-			alert("Välkommen Admin!");
-			console.log("Du är inloggad som admin");
-		    Admin();
+			LoginSuccess(); //Innehåller nedanstående utkommenterat
+			//document.getElementById("username").innerHTML = "";
+			//document.getElementById("password").innerHTML = "";
+			//alert("Välkommen Admin!");
+			//console.log("Du är inloggad som admin");
+		    //Admin();
+		    
+		    return true;
 		}
 		//Om lösenordet är felaktigt meddelas detta och inloggningen misslyckas
 		else if (username === admin && password != secret) {
-			alert("Oops! Fel lösenord");
-		    console.log("Oops! Fel lösenord");
+			DisplayError() //Innehåller utkommenterat nedan
+			//alert("Oops! Fel lösenord");
+		    //console.log("Oops! Fel lösenord");
+		    return false;
 		}
 		//Om användarnamnet är felaktigt meddelas detta och inloggningen misslyckas
 		else if (username != admin && password === secret) {
